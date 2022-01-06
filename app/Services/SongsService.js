@@ -14,6 +14,7 @@ class SongsService {
     $.getJSON(url)
       .then(res => {
         ProxyState.songs = res.results.map(rawData => new Song(rawData));
+        console.log(ProxyState.songs)
       })
       .catch(err => {
         throw new Error(err);
@@ -35,6 +36,10 @@ class SongsService {
   addSong(id) {
     //TODO you only have an id, you will need to find it in the store before you can post it
     //TODO After posting it what should you do?
+    const found = ProxyState.playlist.find(p => p.id === ProxyState.songs.id)
+    if (found){
+      console.error(error)
+    }
   }
 
   /**
